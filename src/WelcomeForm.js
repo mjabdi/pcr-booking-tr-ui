@@ -271,42 +271,36 @@ const getStartedClicked = (event) => {
                         }}>
               
                   <AccessibilityNewIcon className={classes.AirIcon} color="primary" />  
-                      RT-PCR Test to Release - £199
+                      RT-PCR Test to Release - £250
 
                     </div>
           </Typography>
 
           <p className={isMobile ? classes.textContentMobile : classes.textContent}>
-                 PHE accepted for international travel for Testing and Release.
+               DHCS approved provider.
+          </p>
+
+
+          <p className={isMobile ? classes.textContentMobile : classes.textContent}>
+               Meets the government’s minimum standards for providers of Test to Release for international travel.
           </p>
 
           <p className={isMobile ? classes.textContentMobile : classes.textContent}>
-                  Nasopharyngeal swab sample taken from the back of the nose and throat.
+               In-Clinic COVID-19 PCR test to detect viral RNA via nasopharyngeal swab sample taken from the back of the nose and throat by trained healthcare staff.
           </p>
 
           <p className={isMobile ? classes.textContentMobile : classes.textContent}>
-                     COVID-19 PCR test to detect viral RNA.
+                Guaranteed results within 48 hours - over 90% of our results return before 24 hours of clinic appointment.
           </p>
 
           
           <p className={isMobile ? classes.textContentMobile : classes.textContent}>
-                     Guaranteed results within 48 hours - over 90% of our results return before 24 hours of clinic appointment.
+                Secure, verifiable results sent in PDF format via email with hard copies available to collect.
           </p>
 
           <p className={isMobile ? classes.textContentMobile : classes.textContent}>
-                        Secure, verifiable results sent in PDF format via email, hard copies available to collect.        
+               All results are accompanied by a letter from our doctor explaining clearly what your results are, and what action you may take in respect of ending your quarantine early.   
           </p>
-
-          <p className={isMobile ? classes.textContentMobile : classes.textContent}>
-                                 No card details or payment necessary.        
-          </p>
-
-          <p className={isMobile ? classes.textContentMobile : classes.textContent}>
-                Plans change and you may need to cancel or rearrange your appointment. We take payment for your test only when you attend the clinic.
-          </p>
-
-
-          
 
 
           <Button 

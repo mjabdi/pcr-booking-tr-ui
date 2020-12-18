@@ -3,18 +3,8 @@
 const calculatePrice = (person) =>
 {
 
-    var price = 199;
-    
-    if (person.certificate)
-    {
-        price += 50;
-    }
-
-    if (person.antiBodyTest)
-    {
-        price += (99 + 50);
-    }
-
+    var price = 250;
+  
     return price;
 
 }

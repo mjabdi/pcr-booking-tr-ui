@@ -250,6 +250,7 @@ export default function AddressForm() {
                             helperText = "Date of your arrival in the UK (dd/MM/YYYY)"
                             fullWidth autoComplete="none"
                             value = {arrivalDate}
+                            placeholder= "dd/mm/yyyy"
                             onChange = {arrivalDateChanged} 
                 />  
             </Grid>
@@ -270,6 +271,8 @@ export default function AddressForm() {
                 <TextField 
                             error={state.lastDepartedDateError ? true : false}
                             disabled = {sameAddress}
+                            placeholder= "dd/mm/yyyy"
+                            
                             required id="lastDepartedDate" label="Last Departed Date" 
                             helperText = "The date on which you last departed from or transited through a non-exempt country or territory, or a non-exempt region of a country or territory ‒ a destination not on the travel corridors list"
                             fullWidth autoComplete="none"

@@ -240,6 +240,12 @@ export default function AgreementForm() {
         case 4: 
             setCheck({...check, check4:event.target.checked});
             break;
+        case 5: 
+            setCheck({...check, check5:event.target.checked});
+            break;        
+        case 6: 
+            setCheck({...check, check6:event.target.checked});
+            break;
         default:
                 break;
 
@@ -254,7 +260,7 @@ export default function AgreementForm() {
 
 
 const getAgreeClicked = (event) => {
-    if (check.check1 && check.check2 && check.check3 && check.check4)
+    if (check.check1 && check.check2 && check.check3 && check.check4 && check.check5 && check.check6)
     {
         setState(state => ({...state, agreed: true}));
     }
@@ -263,6 +269,13 @@ const getAgreeClicked = (event) => {
         setError(true);
     }
 }
+
+useEffect( () => {
+  if (check.check1 && check.check2 && check.check3 && check.check4 && check.check5 && check.check6)
+  {
+    setError(false);
+  }
+}, [check]);
 
   return (
     <React.Fragment>
@@ -280,7 +293,7 @@ const getAgreeClicked = (event) => {
         >
 
 
-            <Grid item item xs={10}>
+            <Grid item xs={10}>
                   <Typography  style={{fontWeight: "400"}} variant="h6" color="inherit" noWrap>
                     Medical Express Clinic
                   </Typography>
@@ -308,37 +321,55 @@ const getAgreeClicked = (event) => {
 
                 <Grid item xs={12}  >
 
-                        <FormControlLabel 
+                        <FormControlLabel style={{ fontSize: '1rem', textAlign:"justify" }}
                             control={<Checkbox  color="secondary" name="check1" checked={check.check1} onChange={(event => checkClicked(event,1))} />}
-                            label={<span style={{ fontSize: '1rem' }}>{`I do not have a fever`} 
+                            label={<span style={{ fontSize: '1rem',textAlign:"left" }}>{`I do not have a fever.`} 
                             </span>}
                         />
                 </Grid>
 
                 <Grid item xs={12}  >
 
-                        <FormControlLabel
+                        <FormControlLabel style={{ fontSize: '1rem', textAlign:"justify" }}
                                     control={<Checkbox color="secondary" name="check2"checked={check.check2} onChange={(event => checkClicked(event,2))} />}
-                                    label={<span style={{ fontSize: '1rem' }}>{`I do not have a new, continuous cough`} 
+                                    label={<span style={{ fontSize: '1rem',textAlign:"left" }}>{`I do not have a new, continuous cough.`} 
                                     </span>}
                                 />
                 </Grid>
 
                 <Grid item xs={12}  >
 
-                    <FormControlLabel
+                    <FormControlLabel style={{ fontSize: '1rem', textAlign:"justify" }}
                                 control={<Checkbox color="secondary" name="check3" checked={check.check3} onChange={(event => checkClicked(event,3))} />}
-                                label={<span style={{ fontSize: '1rem' }}>{`I do not have shortness of breath`} 
+                                label={<span style={{ fontSize: '1rem', textAlign:"left" }}>{`I do not have shortness of breath.`} 
                                 </span>}
                             />
                     </Grid>
 
                 
-                <Grid item xs={12}  >
+                   <Grid item xs={12}  >
 
                     <FormControlLabel style={{ fontSize: '1rem', textAlign:"justify" }}
                                 control={<Checkbox color="secondary" name="check4" checked={check.check4} onChange={(event => checkClicked(event,4))}  />}
-                                label={<span style={{ fontSize: '1rem', textAlign:"left" }}>{`I have not been in contact with someone suspected or known to have coronavirus`} 
+                                label={<span style={{ fontSize: '1rem', textAlign:"left" }}>{`I have not been in contact with someone suspected or known to have coronavirus.`} 
+                                </span>}
+                            />
+                    </Grid>
+
+                    <Grid item xs={12}  >
+
+                    <FormControlLabel style={{ fontSize: '1rem', textAlign:"justify" }}
+                                control={<Checkbox color="secondary" name="check5" checked={check.check5} onChange={(event => checkClicked(event,5))}  />}
+                                label={<span style={{ fontSize: '1rem', textAlign:"left" }}>{`I confirm that this appointment is for Test to Release PCR, not for the Fit to Fly PCR.`} 
+                                </span>}
+                            />
+                    </Grid>
+
+                    <Grid item xs={12}  >
+
+                    <FormControlLabel style={{ fontSize: '1rem', textAlign:"justify" }}
+                                control={<Checkbox color="secondary" name="check6" checked={check.check6} onChange={(event => checkClicked(event,6))}  />}
+                                label={<span style={{ fontSize: '1rem', textAlign:"left" }}>{`I have been isolating for at least 5 days since my arrival in the UK.`} 
                                 </span>}
                             />
                     </Grid>
@@ -346,7 +377,7 @@ const getAgreeClicked = (event) => {
                 </Grid>
 
             <p className={isMobile ? classes.textContentMobile : classes.textContent}>
-                 If you cannot confirm all the points stated above, you must not proceed any further and must self-isolate for the next 14 days. Please click the box to agree to these terms.
+                 If you cannot confirm all the points stated above, you must not proceed any further. Please click the box to agree to these terms.
             </p>
 
             {error && (

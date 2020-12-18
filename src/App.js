@@ -13,8 +13,9 @@ function App() {
       <div className="App">
 
       
-         {!state.getStarted && !state.login && ( <LoginForm/> )}
-        {!state.getStarted && state.login && ( <WelcomeForm/> )}
+         {/* {!state.getStarted && !state.login && ( <LoginForm/> )} */}
+        {/* {!state.getStarted && state.login && ( <WelcomeForm/> )} */}
+        {!state.getStarted && ( <WelcomeForm/> )}
         {state.getStarted && !state.agreed && ( <AgreementForm/>  )}
         {state.getStarted && state.agreed  && ( <Checkout/>  )}
 
