@@ -278,12 +278,12 @@ export default function Checkout() {
           travellingFrom: state.travellingFrom
         };
     
-        const promise = BookService.bookAppointment({...personInfo, bookingDate:  dateformat(new Date(state.bookingDate.toUTCString().slice(0, -4)),'yyyy-mm-dd'), bookingTime: state.bookingTime, bookingRef: ref, tr: true, referrer: window.location.pathname});
+        const promise = BookService.bookAppointment({...personInfo, bookingDate:  dateformat(new Date(state.bookingDate.toUTCString().slice(0, -4)),'yyyy-mm-dd'), bookingTime: state.bookingTime, bookingRef: ref, tr: true, referrer: '/'});
         promiseArray.push(promise);
       }
   
       for (var i=0 ; i < state.persons?.length; i++){
-        promiseArray.push(BookService.bookAppointment({...state.persons[i],bookingDate: dateformat(new Date(state.bookingDate.toUTCString().slice(0, -4)),'yyyy-mm-dd'), bookingTime: state.bookingTime, bookingRef: ref, tr: true, referrer: window.location.pathname}));
+        promiseArray.push(BookService.bookAppointment({...state.persons[i],bookingDate: dateformat(new Date(state.bookingDate.toUTCString().slice(0, -4)),'yyyy-mm-dd'), bookingTime: state.bookingTime, bookingRef: ref, tr: true, referrer: '/'}));
       }
       
       Promise.all(promiseArray).then( (values) => {

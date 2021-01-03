@@ -261,6 +261,11 @@ const getStartedClicked = (event) => {
       <main className={classes.layout}>
         <Paper className={classes.paper}>
 
+        {state.firstname && state.firstname.length > 0 && (
+            <div style={{textAlign:'center', fontSize:"1rem", marginBottom:"10px", color:"#777",backgroundColor:"#f7fbff",padding:"20px"}}>
+                Welcome back <span style={{fontWeight:"500", color:"#333", fontStyle:"italic"}}>{state.firstname}</span>
+            </div>
+          )}
        
           <Typography style={{fontWeight : 700, marginBottom: "50px"}} component="h1" variant="h6" align="center">
 
