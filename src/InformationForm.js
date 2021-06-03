@@ -93,6 +93,14 @@ export default function InformationForm() {
     const [ethnicity, setEthnicity] = React.useState(state.ethnicity ?? '');
 
     const [phone, setPhone] = React.useState(state.phone ?? '');
+
+    const [covidVaccine, setCovidVaccine] = React.useState(state.covidVaccine ?? '');
+    const covidVaccineChanged = (event) => {
+      setCovidVaccine(event.target.value);
+      setState(state => ({...state, covidVaccine: event.target.value}));
+      setState(state => ({...state, covidVaccineError : false}));
+    };
+
     
    
 
@@ -401,6 +409,26 @@ export default function InformationForm() {
                       onChange = {ethnicityChanged} 
             />        
       </Grid>
+
+      <Grid item xs={12}>
+            <FormControl className={classes.formControl} fullWidth required>
+                <InputLabel id="vaccine-label-id">Have you had your Covid Vaccine?</InputLabel>
+                <Select
+                    error={state.covidVaccineError ? true : false}
+                    fullWidth
+                    labelId="vaccine-label-id"
+                    id="vaccine-id"
+                    label="Have you had your Covid Vaccine?"
+                    value={covidVaccine}
+                    onChange={covidVaccineChanged}
+                >
+                    <MenuItem value={'NO'}>NO</MenuItem>
+                    <MenuItem value={'YES 1 Dose'}>YES 1 Dose</MenuItem>
+                    <MenuItem value={'YES 2 Dose'}>YES 2 Dose</MenuItem>
+                </Select>
+            </FormControl>
+        </Grid>
+
 
         <Grid item xs={12} className={classes.formControl} >
            <p>{'* Please take care when entering your information, and double check that everything entered on this form is correct.'}</p>

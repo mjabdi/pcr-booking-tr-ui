@@ -275,7 +275,8 @@ export default function Checkout() {
           arrivalDate: state.arrivalDate,
           flightNumber: state.flightNumber,
           lastDepartedDate: state.lastDepartedDate,
-          travellingFrom: state.travellingFrom
+          travellingFrom: state.travellingFrom,
+          covidVaccine: state.covidVaccine
         };
     
         const promise = BookService.bookAppointment({...personInfo, bookingDate:  dateformat(new Date(state.bookingDate.toUTCString().slice(0, -4)),'yyyy-mm-dd'), bookingTime: state.bookingTime, bookingRef: ref, tr: true, referrer: '/'});

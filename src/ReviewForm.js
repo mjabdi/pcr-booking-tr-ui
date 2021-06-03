@@ -202,7 +202,8 @@ export default function ReviewForm() {
           arrivalDate: state.arrivalDate,
           flightNumber: state.flightNumber,
           lastDepartedDate: state.lastDepartedDate,
-          travellingFrom: state.travellingFrom
+          travellingFrom: state.travellingFrom,
+          covidVaccine: state.covidVaccine
 
         }
           var newPersons = state.persons;
@@ -319,6 +320,11 @@ export default function ReviewForm() {
                                      <span className={classes.infoTitle}>Travelling From</span> <span className={classes.infoData}>{person.travellingFrom}</span>  
                                   </li>
 
+                                  <li className={classes.li}>
+                                    <span className={classes.infoTitle}>Covid Vaccine</span> <span className={classes.infoData}>{person.covidVaccine}</span>  
+                                 </li>
+
+
                                   <li className={classes.li} style={{marginTop: "10px"}}>
                                       <span className={classes.infoTitle}>Price</span> <span style={{fontWeight: '600', color: "red"}} className={classes.infoData}>{`£${calculatePrice(person)}`}</span>  
                                   </li>
@@ -406,6 +412,11 @@ export default function ReviewForm() {
                                   <li className={classes.li}>
                                      <span className={classes.infoTitle}>Travelling From</span> <span className={classes.infoData}>{state.travellingFrom}</span>  
                                   </li>
+
+                                  <li className={classes.li}>
+                                     <span className={classes.infoTitle}>Covid Vaccine</span> <span className={classes.infoData}>{state.covidVaccine}</span>  
+                                  </li>
+
 
                                   <li className={classes.li} style={{marginTop: "10px"}}>
                                       <span className={classes.infoTitle}>Price</span> <span style={{fontWeight: '600', color: "red"}} className={classes.infoData}>{`£${calculatePrice(state)}`}</span>  
