@@ -86,6 +86,10 @@ export default function InformationForm() {
     const [title, setTitle] = React.useState(state.title ?? '');
 
     const [emailConfirmed, setEmailConfirmed] = React.useState(state.emailConfirmed ?? false);
+    const [passportConfirmed, setPassportConfirmed] = React.useState(state.passportConfirmed ?? false);
+
+
+
 
     const [passportNumber, setPassportNumber] = React.useState(state.passportNumber ?? '');
     
@@ -147,6 +151,12 @@ export default function InformationForm() {
         setState(state => ({...state, passportNumberError : false}));
       }
   }
+
+  const passportConfirmedChanged = (event) => {
+    setPassportConfirmed(event.target.checked);
+    setState(state => ({...state, passportConfirmed: event.target.checked}));
+    setState(state => ({...state, passportConfirmedError: false}));
+};
 
   
 
@@ -427,6 +437,21 @@ export default function InformationForm() {
                     <MenuItem value={'YES 2 Dose'}>YES 2 Dose</MenuItem>
                 </Select>
             </FormControl>
+        </Grid>
+
+
+        <Grid item xs={12} className={classes.formControl} >
+          <FormControlLabel className={classes.formControl} style={{ color: state.emailConfirmedError ? "red" : '' }}
+            control={<Checkbox className={classes.formControl} style={{ color: state.emailConfirmedError ? "red" : '' }} color="secondary" name="emailConfirmCheckBox" checked={emailConfirmed} onChange={emailConfirmedChanged} />}
+            label={<span style={{ fontSize: '0.8rem' }}>{`I confirm that this is a private email address to which I am happy for you to send my results.`} </span>}
+          />
+        </Grid>
+
+        <Grid item xs={12} className={classes.formControl}>
+          <FormControlLabel className={classes.formControl} style={{ color: state.passportConfirmedError ? "red" : '' }}
+            control={<Checkbox className={classes.formControl} style={{ color: state.passportConfirmedError ? "red" : '' }} color="secondary" name="emailConfirmCheckBox" checked={passportConfirmed} onChange={passportConfirmedChanged} />}
+            label={<span style={{ fontSize: '0.8rem' }}>{`As part of testing requirements outlined by the Department of Health and Social Services, we will need to check your identity before conducting your test. Please tick to confirm that you will bring your passport or a copy to your test appointment.`} </span>}
+          />
         </Grid>
 
 
